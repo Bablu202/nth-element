@@ -1,7 +1,11 @@
-import "./App.css";
+import Travel from "./pages/Travel";
 
 function App() {
-  return <div className="App">Here</div>;
+  return (
+    <>
+      <Travel />
+    </>
+  );
 }
 
 export default App;
