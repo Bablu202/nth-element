@@ -5,10 +5,10 @@ import TravelItems from "../components/TravelItems";
 export default function Travel() {
   //LOCAL STORAGE
   let getLocalData = JSON.parse(localStorage.getItem("initialTravelItems"));
+  let dataNeeded = getLocalData.length ? getLocalData : [];
+  console.log(dataNeeded);
+  const [initialTravelItems, setInitialTracelItems] = useState(dataNeeded);
 
-  const [initialTravelItems, setInitialTracelItems] = useState(
-    getLocalData === 0 ? [] : getLocalData
-  );
   //USE EFFECT To Store data Locally at Add Button
   useEffect(() => {
     localStorage.setItem(
@@ -16,7 +16,6 @@ export default function Travel() {
       JSON.stringify(initialTravelItems)
     );
   }, [initialTravelItems]);
-  console.log(55 + getLocalData);
 
   //CALCULATIONS FOR FOOTER
   const allTravelItems = initialTravelItems.length;
