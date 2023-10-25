@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TravelForm from "../components/TravelForm";
 import TravelItems from "../components/TravelItems";
 
 export default function Travel() {
-  const [initialTravelItems, setInitialTracelItems] = useState([]);
+  //LOCAL STORAGE
+  let getLocalData = JSON.parse(localStorage.getItem("initialTravelItems"));
+
+  const [initialTravelItems, setInitialTracelItems] = useState(getLocalData);
+  //USE EFFECT To Store data Locally at Add Button
+  useEffect(() => {
+    localStorage.setItem(
+      "initialTravelItems",
+      JSON.stringify(initialTravelItems)
+    );
+  }, [initialTravelItems]);
+  console.log(55 + getLocalData);
 
   //CALCULATIONS FOR FOOTER
   const allTravelItems = initialTravelItems.length;
@@ -17,7 +28,6 @@ export default function Travel() {
   //SORT TRAVEL ITEMS
   const [sortBy, setSortBy] = useState("packed");
   let initialTravelItemsBySorted;
-  console.log(sortBy);
   if (sortBy === "input") initialTravelItemsBySorted = initialTravelItems;
 
   if (sortBy === "description")
@@ -25,7 +35,7 @@ export default function Travel() {
       .slice()
       .sort((a, b) => a.item.localeCompare(b.item));
 
-  console.log(sortBy);
+  // console.log(sortBy);
   if (sortBy === "packed")
     initialTravelItemsBySorted = initialTravelItems
       .slice()
@@ -89,24 +99,26 @@ export default function Travel() {
             handleCheckedTravelItem={handleCheckedTravelItem}
           />
         </ul>
-        <select
-          value={sortBy}
-          onChange={(e) => {
-            setSortBy(e.target.value);
-          }}
-        >
-          <option value="input">default Order</option>
-          <option value="description">description Order</option>
-          <option value="packed">to be packedorder</option>
-        </select>
-        <button
-          className="btn"
-          onClick={() => {
-            setInitialTracelItems([]);
-          }}
-        >
-          clear
-        </button>
+        <div className="travel__sort">
+          <select
+            value={sortBy}
+            onChange={(e) => {
+              setSortBy(e.target.value);
+            }}
+          >
+            <option value="input">default Order</option>
+            <option value="description">description Order</option>
+            <option value="packed">to be packedorder</option>
+          </select>
+          <button
+            className="btn"
+            onClick={() => {
+              setInitialTracelItems([]);
+            }}
+          >
+            clear
+          </button>
+        </div>
       </div>
 
       <footer className="footer">
