@@ -13,9 +13,28 @@ export default function Travel() {
   );
   let defaultTravelItem = { item: "", quantity: 1, isPacked: false };
   const [moreTravelElement, setMoreTravelElement] = useState(defaultTravelItem);
+
+  //SORT TRAVEL ITEMS
+  const [sortBy, setSortBy] = useState("packed");
+  let initialTravelItemsBySorted;
+  console.log(sortBy);
+  if (sortBy === "input") initialTravelItemsBySorted = initialTravelItems;
+
+  if (sortBy === "description")
+    initialTravelItemsBySorted = initialTravelItems
+      .slice()
+      .sort((a, b) => a.item.localeCompare(b.item));
+
+  console.log(sortBy);
+  if (sortBy === "packed")
+    initialTravelItemsBySorted = initialTravelItems
+      .slice()
+      .sort((a, b) => Number(a.isPacked) - Number(b.isPacked));
+
   //ADD HANDLE
   const handleAddTravelItems = (e) => {
     e.preventDefault();
+    if (!moreTravelElement.item) return;
     let idWithTime = Date.now();
     const newEle = {
       id: idWithTime,
@@ -65,12 +84,31 @@ export default function Travel() {
       <div className="travel__list">
         <ul>
           <TravelItems
-            initialTravelItems={initialTravelItems}
+            initialTravelItems={initialTravelItemsBySorted}
             handleDeleteTravelItem={handleDeleteTravelItem}
             handleCheckedTravelItem={handleCheckedTravelItem}
           />
         </ul>
+        <select
+          value={sortBy}
+          onChange={(e) => {
+            setSortBy(e.target.value);
+          }}
+        >
+          <option value="input">default Order</option>
+          <option value="description">description Order</option>
+          <option value="packed">to be packedorder</option>
+        </select>
+        <button
+          className="btn"
+          onClick={() => {
+            setInitialTracelItems([]);
+          }}
+        >
+          clear
+        </button>
       </div>
+
       <footer className="footer">
         {!allTravelItems ? <em>Let's start adding</em> : footerStats}
       </footer>

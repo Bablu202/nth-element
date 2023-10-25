@@ -36,7 +36,7 @@ export default function TravelForm({
         />
         {/*SUBMIT BUTTON ------------*/}
 
-        <button className="travel__add btn" onClick={handleAddTravelItems}>
+        <button className="btn--add" onClick={handleAddTravelItems}>
           Add
         </button>
       </form>
