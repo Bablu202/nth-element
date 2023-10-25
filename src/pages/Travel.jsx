@@ -1,77 +1,78 @@
 import React, { useState } from "react";
+import TravelForm from "../components/TravelForm";
+import TravelItems from "../components/TravelItems";
 
 export default function Travel() {
-  const [initialTravelItems, setInitialTracelItems] = useState([
-    { item: "Passport", quantity: 2, isPacked: false },
-    { item: "Jeans", quantity: 3, isPacked: false },
-    { item: "Shirts", quantity: 5, isPacked: true },
-  ]);
-  const [moreTravelElement, setMoreTravelElement] = useState({
-    item: "",
-    quantity: 1,
-    isPacked: false,
-  });
+  const [initialTravelItems, setInitialTracelItems] = useState([]);
+
+  //CALCULATIONS FOR FOOTER
+  const allTravelItems = initialTravelItems.length;
+  const itemsPacked = initialTravelItems.filter((e) => e.isPacked).length;
+  const itemsPackedPercentage = Math.round(
+    (itemsPacked / allTravelItems) * 100
+  );
+  let defaultTravelItem = { item: "", quantity: 1, isPacked: false };
+  const [moreTravelElement, setMoreTravelElement] = useState(defaultTravelItem);
+  //ADD HANDLE
   const handleAddTravelItems = (e) => {
     e.preventDefault();
+    let idWithTime = Date.now();
     const newEle = {
+      id: idWithTime,
       item: moreTravelElement.item,
       quantity: moreTravelElement.quantity,
       isPacked: moreTravelElement.isPacked,
     };
-    //setUsers((oldList) => [...oldList, user]);
     setInitialTracelItems((prev) => [...prev, newEle]);
+
+    setMoreTravelElement(defaultTravelItem);
+  };
+  //DELETE HANDLE
+  const handleDeleteTravelItem = (id) => {
+    console.log("del");
+    const afterDelTravelList = initialTravelItems.filter((e) => e.id !== id);
+    setInitialTracelItems(afterDelTravelList);
+  };
+  const handleCheckedTravelItem = (id) => {
+    console.log("check");
+    // setMoreTravelElement({ ...moreTravelElement, item: e.target.value })
+    setInitialTracelItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, isPacked: !item.isPacked } : item
+      )
+    );
   };
 
-  const initialTravelItemsMap = initialTravelItems.map((e, i) => (
-    <li key={i}>
-      <span style={e.isPacked ? { textDecoration: "line-through" } : {}}>
-        {e.quantity} - {e.item}
-      </span>
-    </li>
-  ));
+  const footerStats =
+    itemsPackedPercentage === 100 ? (
+      <em>Wohohh....Lets Fly</em>
+    ) : (
+      <em>
+        you have {allTravelItems} items on your list , so {itemsPacked} are
+        packed, it's like {itemsPackedPercentage}% done..
+      </em>
+    );
 
   return (
     <div className="travel__element">
       <h1 className="heading-1">Let's Pack it up!</h1>
-      {/*FORM ------------*/}
-      <form className="travel__form" onSubmit={handleAddTravelItems}>
-        <h3 className="heading-3">Dont't forget what you need!</h3>
-        {/*SELECT FROM 1 - 20 ------------*/}
+      <TravelForm
+        handleAddTravelItems={handleAddTravelItems}
+        moreTravelElement={moreTravelElement}
+        setMoreTravelElement={setMoreTravelElement}
+      />
 
-        <select
-          value={moreTravelElement.quantity}
-          onChange={(e) => {
-            setMoreTravelElement({
-              ...moreTravelElement,
-              quantity: e.target.value,
-            });
-          }}
-        >
-          {Array.from({ length: 20 }, (e, i) => i + 1).map((num) => (
-            <option key={num}>{num}</option>
-          ))}
-        </select>
-        {/*ADD ITEM HERE ------------*/}
-        <input
-          className="travel__form--input"
-          type="text"
-          placeholder="thing's to pack"
-          value={moreTravelElement.item}
-          onChange={(e) =>
-            setMoreTravelElement({ ...moreTravelElement, item: e.target.value })
-          }
-        />
-        {/*SUBMIT BUTTON ------------*/}
-
-        <button className="travel__add btn" onClick={handleAddTravelItems}>
-          Add
-        </button>
-      </form>
       <div className="travel__list">
-        <ul>{initialTravelItemsMap}</ul>
+        <ul>
+          <TravelItems
+            initialTravelItems={initialTravelItems}
+            handleDeleteTravelItem={handleDeleteTravelItem}
+            handleCheckedTravelItem={handleCheckedTravelItem}
+          />
+        </ul>
       </div>
       <footer className="footer">
-        <em>you have .. items on your list</em>
+        {!allTravelItems ? <em>Let's start adding</em> : footerStats}
       </footer>
     </div>
   );
