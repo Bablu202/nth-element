@@ -4,8 +4,8 @@ import Travel from "./pages/Travel";
 function App() {
   return (
     <>
-      {/* <Travel /> */}
-      <RatingE />
+      <Travel />
+      {/* <RatingE /> */}
     </>
   );
 }
