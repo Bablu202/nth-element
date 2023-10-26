@@ -20,10 +20,7 @@ export default function TravelItems({
       >
         {e.quantity} - {e.item}
       </span>
-      <button
-        className="btn btn--del"
-        onClick={() => handleDeleteTravelItem(e.id)}
-      >
+      <button className="btn--del" onClick={() => handleDeleteTravelItem(e.id)}>
         <FcEmptyTrash />
       </button>
     </li>

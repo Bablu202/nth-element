@@ -47,7 +47,7 @@ html {
 }
 body {
   font-family: $font-family-rale;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: $color-base-2;
   font-weight: 300;
   line-height: 1.6;
@@ -55,8 +55,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @media only screen and (max-width: $bp-1000px) {
-    font-size: 1.4rem;
-    line-height: 1.4;
+    font-size: 1.6rem;
+    line-height: 1.6;
   }
 }
 button,
@@ -66,14 +66,12 @@ option {
   font-family: inherit;
   font-size: 1.6rem;
   border: none;
+  outline: none;
   border-radius: 0.5rem;
   padding: 1rem 2rem;
   width: max-content;
   cursor: pointer;
-  &:not(:last-child) {
-    margin-right: 1rem;
-  }
-  font-stretch: none;
+  margin-right: 1.2rem;
 }
 .heading-1 {
   font-family: $font-family-fira;
@@ -86,6 +84,12 @@ option {
   word-spacing: 20px;
   letter-spacing: 6px;
   padding: 1rem 0;
+  @media only screen and (max-width: $bp-800px) {
+    font-size: 3rem;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    padding: 0.8rem;
+  }
 }
 .heading-2 {
   font-size: 3rem;
@@ -113,16 +117,38 @@ option {
   border: none;
 }
 .btn {
-  border: none;
-  outline: none;
-  padding: 1rem 2rem;
-
-  &--del {
-    color: $color-base-4;
-    background-color: transparent;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   }
+  &:active {
+    transform: translateY(0.2rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+
   &--add {
   }
   &--clear {
+    background-color: $color-base-4;
+    color: $color-base-2;
+    font-size: 2rem;
   }
+}
+.btn--del {
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.8);
+  }
+  &:active {
+    transform: scale(1);
+  }
+}
+.footer {
+  margin-top: auto;
 }

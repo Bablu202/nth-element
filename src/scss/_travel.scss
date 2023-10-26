@@ -44,6 +44,8 @@
   align-items: center;
   gap: 3.2rem;
   list-style: none;
+
+  overflow: scroll;
   &--items {
     padding: 1rem;
   }
@@ -68,6 +70,8 @@ input[type="checkbox"] {
 .travel__sort {
   display: flex;
   margin: 1rem;
+  position: fixed;
+  bottom: 10rem;
 }
 .select__box {
 }

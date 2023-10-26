@@ -125,7 +125,7 @@ export default function Travel() {
               setInitialTracelItems([]);
             }}
           >
-            clear
+            Clear all
           </button>
         </div>
       </div>
