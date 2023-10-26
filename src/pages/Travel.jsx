@@ -30,7 +30,7 @@ export default function Travel() {
   const [moreTravelElement, setMoreTravelElement] = useState(defaultTravelItem);
 
   //SORT TRAVEL ITEMS
-  const [sortBy, setSortBy] = useState("packed");
+  const [sortBy, setSortBy] = useState("input");
   let initialTravelItemsBySorted;
   if (sortBy === "input") initialTravelItemsBySorted = initialTravelItems;
 

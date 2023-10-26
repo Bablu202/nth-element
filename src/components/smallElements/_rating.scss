@@ -1,0 +1,10 @@
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__stars {
+    display: flex;
+    flex-direction: row;
+    color: #ffb30d;
+  }
+}
