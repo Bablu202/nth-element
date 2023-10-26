@@ -121,6 +121,8 @@ option {
   }
 
   &--add {
+    background-color: $color-prime-3;
+    color: $color-light-1;
   }
   &--clear {
     background-color: $color-base-4;

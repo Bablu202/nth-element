@@ -1,12 +1,13 @@
 .footer {
   background-color: $color-light-1;
-
   display: flex;
   flex-direction: column;
   text-align: center;
-  align-items: center;
-  font-weight: 700;
+
   &__stats {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $color-bg;
     margin-top: 1rem;
     padding: 1rem 2rem;
     background-color: $color-base-3;

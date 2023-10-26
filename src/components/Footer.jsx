@@ -1,5 +1,5 @@
 import React from "react";
-
+import { AiOutlineDelete } from "react-icons/ai";
 export default function Footer({
   sortBy,
   setSortBy,
@@ -33,7 +33,7 @@ export default function Footer({
             setInitialTracelItems([]);
           }}
         >
-          Clear all
+          <AiOutlineDelete /> Clear all
         </button>
       </div>
       <div className="footer__stats">

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FcBriefcase } from "react-icons/fc";
 export default function TravelForm({
   handleAddTravelItems,
   moreTravelElement,
@@ -45,7 +45,7 @@ export default function TravelForm({
           {/*SUBMIT BUTTON ------------*/}
 
           <button className="btn btn--add" onClick={handleAddTravelItems}>
-            Add
+            <FcBriefcase />
           </button>
         </div>
       </form>
