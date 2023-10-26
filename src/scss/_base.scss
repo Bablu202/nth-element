@@ -54,6 +54,10 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media only screen and (max-width: $bp-1000px) {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
 }
 button,
 select,
@@ -69,6 +73,7 @@ option {
   &:not(:last-child) {
     margin-right: 1rem;
   }
+  font-stretch: none;
 }
 .heading-1 {
   font-family: $font-family-fira;
