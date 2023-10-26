@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TravelForm from "../components/TravelForm";
 import TravelItems from "../components/TravelItems";
-
+import { FcCheckmark } from "react-icons/fc";
 export default function Travel() {
   //LOCAL STORAGE
   let getLocalData = JSON.parse(localStorage.getItem("initialTravelItems"));
@@ -94,7 +94,7 @@ export default function Travel() {
       />
 
       <div className="travel__list">
-        <ul>
+        <ul className="travel__item">
           <TravelItems
             initialTravelItems={initialTravelItemsBySorted}
             handleDeleteTravelItem={handleDeleteTravelItem}
@@ -103,17 +103,24 @@ export default function Travel() {
         </ul>
         <div className="travel__sort">
           <select
+            className="select__box"
             value={sortBy}
             onChange={(e) => {
               setSortBy(e.target.value);
             }}
           >
-            <option value="input">default Order</option>
-            <option value="description">description Order</option>
-            <option value="packed">to be packedorder</option>
+            <option className="select__option" value="input">
+              default Order
+            </option>
+            <option className="select__option" value="description">
+              description Order
+            </option>
+            <option className="select__option" value="packed">
+              to be packedorder
+            </option>
           </select>
           <button
-            className="btn"
+            className="btn btn--clear"
             onClick={() => {
               setInitialTracelItems([]);
             }}

@@ -1,19 +1,20 @@
 //varibles,
 
-//$color-prime-1: #f2e088;
-//$color-prime-2: #d9c58b;
+$color-prime-1: #f2e088;
+$color-prime-2: #d9c58b;
+$color-prime-3: #f2a71b;
 
-$color-bg: #101d2c;
-$color-prime-1: #d9d9d9;
-$color-prime-2: #d9d9d9;
+$color-bg: #025e73;
 
 $color-base-1: #717348;
 $color-base-2: #101d2c;
 $color-base-3: #76c7ad;
 $color-base-4: #ff4858;
 
-$color-light: #d9d9d9;
-$color-dark: #8c8a87;
+$color-light-1: #d9d9d9;
+$color-light-2: #bfb78f;
+$color-dark-1: #8c8a87;
+$color-dark-2: #a5a692;
 
 //$font-prime: "Proza Libre", sans-serif;
 //$font-sec: "Noto Sans", sans-serif;
@@ -54,35 +55,69 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+button,
+select,
+input,
+option {
+  font-family: inherit;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  width: max-content;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
 .heading-1 {
   font-family: $font-family-fira;
-  color: $color-dark;
+  color: $color-base-2;
   text-align: center;
-  background-color: $color-bg;
+  background-color: $color-prime-3;
   font-size: 4rem;
   text-transform: uppercase;
-  font-weight: 400;
-  word-spacing: 30px;
-  letter-spacing: 5px;
+  font-weight: 600;
+  word-spacing: 20px;
+  letter-spacing: 6px;
   padding: 1rem 0;
 }
 .heading-2 {
   font-size: 3rem;
 }
 .heading-3 {
-  margin-right: 1.6rem;
-  font-size: 2.4rem;
+  margin: 1rem 1rem;
+  font-size: 2.6rem;
+  word-spacing: 5px;
 }
 
+.select__box {
+  padding: 1rem;
+  width: max-content;
+  position: relative;
+  color: $color-base-2;
+  background-color: $color-base-3;
+  cursor: pointer;
+  border: 0;
+}
+.select__option {
+  position: absolute;
+  color: $color-base-2;
+  background-color: $color-base-3;
+  border: 0;
+  border: none;
+}
 .btn {
   border: none;
   outline: none;
   padding: 1rem 2rem;
+
   &--del {
-    color: #ff4858;
+    color: $color-base-4;
+    background-color: transparent;
   }
   &--add {
-    color: #717348;
+  }
+  &--clear {
   }
 }

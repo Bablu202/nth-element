@@ -12,6 +12,7 @@ export default function TravelForm({
         {/*SELECT FROM 1 - 20 ------------*/}
 
         <select
+          className="select__box"
           value={moreTravelElement.quantity}
           onChange={(e) => {
             setMoreTravelElement({
@@ -21,7 +22,9 @@ export default function TravelForm({
           }}
         >
           {Array.from({ length: 20 }, (e, i) => i + 1).map((num) => (
-            <option key={num}>{num}</option>
+            <option className="select__option" key={num}>
+              {num}
+            </option>
           ))}
         </select>
         {/*ADD ITEM HERE ------------*/}
@@ -36,7 +39,7 @@ export default function TravelForm({
         />
         {/*SUBMIT BUTTON ------------*/}
 
-        <button className="btn--add" onClick={handleAddTravelItems}>
+        <button className=" btn btn--add" onClick={handleAddTravelItems}>
           Add
         </button>
       </form>
