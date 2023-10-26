@@ -69,3 +69,9 @@ input[type="checkbox"] {
   width: 2rem;
   accent-color: $color-base-3;
 }
+
+.travel__form--input {
+  background-color: $color-base-3;
+  color: $color-bg;
+  height: max-content;
+}
