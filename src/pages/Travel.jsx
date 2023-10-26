@@ -7,11 +7,10 @@ export default function Travel() {
   let getLocalData = JSON.parse(localStorage.getItem("initialTravelItems"));
 
   let dataNeeded =
-    getLocalData != null && getLocalData.length < 1 ? getLocalData : [];
+    getLocalData != null && getLocalData.length < 1 ? [] : getLocalData;
 
   const [initialTravelItems, setInitialTracelItems] = useState(dataNeeded);
 
-  console.log(getLocalData != null && getLocalData.length < 1);
   //USE EFFECT To Store data Locally at Add Button
   useEffect(() => {
     localStorage.setItem(
@@ -67,7 +66,6 @@ export default function Travel() {
     setInitialTracelItems(afterDelTravelList);
   };
   const handleCheckedTravelItem = (id) => {
-    console.log("check");
     // setMoreTravelElement({ ...moreTravelElement, item: e.target.value })
     setInitialTracelItems((items) =>
       items.map((item) =>
