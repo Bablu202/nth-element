@@ -98,6 +98,12 @@ option {
   margin: 1rem 1rem;
   font-size: 2.6rem;
   word-spacing: 5px;
+  @media only screen and (max-width: $bp-800px) {
+    font-size: 2rem;
+    word-spacing: normal;
+    letter-spacing: normal;
+    padding: 0.2rem;
+  }
 }
 
 .btn {

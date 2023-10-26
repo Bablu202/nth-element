@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TravelForm from "../components/TravelForm";
 import TravelItems from "../components/TravelItems";
 import { FcCheckmark } from "react-icons/fc";
+import Footer from "../components/Footer";
 export default function Travel() {
   //LOCAL STORAGE
   let getLocalData = JSON.parse(localStorage.getItem("initialTravelItems"));
@@ -92,7 +93,6 @@ export default function Travel() {
         moreTravelElement={moreTravelElement}
         setMoreTravelElement={setMoreTravelElement}
       />
-
       <div className="travel__list">
         <ul className="travel__item">
           <TravelItems
@@ -101,38 +101,14 @@ export default function Travel() {
             handleCheckedTravelItem={handleCheckedTravelItem}
           />
         </ul>
-        <div className="travel__sort">
-          <select
-            className="select__box"
-            value={sortBy}
-            onChange={(e) => {
-              setSortBy(e.target.value);
-            }}
-          >
-            <option className="select__option" value="input">
-              default Order
-            </option>
-            <option className="select__option" value="description">
-              description Order
-            </option>
-            <option className="select__option" value="packed">
-              to be packedorder
-            </option>
-          </select>
-          <button
-            className="btn btn--clear"
-            onClick={() => {
-              setInitialTracelItems([]);
-            }}
-          >
-            Clear all
-          </button>
-        </div>
       </div>
-
-      <footer className="footer">
-        {!allTravelItems ? <em>Let's start adding</em> : footerStats}
-      </footer>
+      <Footer
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        setInitialTracelItems={setInitialTracelItems}
+        allTravelItems={allTravelItems}
+        footerStats={footerStats}
+      />
     </div>
   );
 }
