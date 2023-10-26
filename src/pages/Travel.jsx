@@ -8,7 +8,7 @@ export default function Travel() {
   let getLocalData = JSON.parse(localStorage.getItem("initialTravelItems"));
 
   let dataNeeded =
-    getLocalData != null && getLocalData.length < 1 ? [] : getLocalData;
+    getLocalData === null || getLocalData.length === 0 ? [] : getLocalData;
 
   const [initialTravelItems, setInitialTracelItems] = useState(dataNeeded);
 
