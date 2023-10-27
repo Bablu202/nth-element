@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-export default function RatingE({ maxrating = 5 }) {
+export default function RatingE({ maxrating = 5, ss }) {
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
 
   let star = !tempRating ? rating : tempRating;
-
+  const rate = {
+    display: "flex",
+    color: `${ss}`,
+  };
   return (
     <div>
-      <div className="rating__stars">
+      <div style={rate}>
         {Array.from({ length: maxrating }, (_, i) => (
           <div
             className=""

@@ -45,7 +45,7 @@ export default function TravelForm({
           {/*SUBMIT BUTTON ------------*/}
 
           <button className="btn btn--add" onClick={handleAddTravelItems}>
-            <FcBriefcase />
+            <FcBriefcase /> Add
           </button>
         </div>
       </form>
