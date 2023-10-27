@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Travel from "../pages/Travel";
 
 const Homepage = ({ token }) => {
   let navigate = useNavigate();
@@ -14,6 +15,7 @@ const Homepage = ({ token }) => {
       <img />
       <h3>Welcome back, {token.user.user_metadata.full_name}</h3>
       <button onClick={handleLogout}>Logout</button>
+      <Travel />
     </div>
   );
 };
