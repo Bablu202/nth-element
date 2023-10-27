@@ -42,9 +42,9 @@ const Login = ({ setToken }) => {
   }
 
   return (
-    <div>
+    <div className="form">
       <h3>Let's go! Login Here</h3>
-      <form onSubmit={handleSubmit}>
+      <form className="form--fill" onSubmit={handleSubmit}>
         <input placeholder="Email" name="email" onChange={handleChange} />
 
         <input

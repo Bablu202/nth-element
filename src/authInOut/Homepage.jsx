@@ -11,7 +11,7 @@ const Homepage = ({ token }) => {
   }
   console.log(token);
   return (
-    <div>
+    <div className="form">
       <img />
       <h3>Welcome back, {token.user.user_metadata.full_name}</h3>
       <button onClick={handleLogout}>Logout</button>

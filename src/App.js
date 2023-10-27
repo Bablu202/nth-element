@@ -2,6 +2,7 @@ import Travel from "./pages/Travel";
 import React, { useState, useEffect } from "react";
 import { SignUp, Login, Homepage } from "./authInOut/index";
 import { Routes, Route } from "react-router-dom";
+import "./main.scss";
 
 const App = () => {
   const [token, setToken] = useState(false);
