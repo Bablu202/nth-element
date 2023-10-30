@@ -3,7 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 export default function Footer({
   sortBy,
   setSortBy,
-  setInitialTracelItems,
+  setInitialTravelItems,
   allTravelItems,
   footerStats,
 }) {
@@ -30,7 +30,7 @@ export default function Footer({
         <button
           className="btn btn--clear"
           onClick={() => {
-            setInitialTracelItems([]);
+            setInitialTravelItems([]);
           }}
         >
           <AiOutlineDelete /> Clear all

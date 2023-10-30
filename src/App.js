@@ -9,6 +9,7 @@ const App = () => {
 
   if (token) {
     sessionStorage.setItem("token", JSON.stringify(token));
+    //console.log(token.user.email);
   }
 
   useEffect(() => {
