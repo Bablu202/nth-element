@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FcEmptyTrash } from "react-icons/fc";
 
 export default function TravelItems({
-  initialTravelItems,
+  initialTravelItemsBySorted,
   handleDeleteTravelItem,
   handleCheckedTravelItem,
 }) {
-  const initialTravelItemsMap = initialTravelItems.map((e) => (
+  const initialTravelItemsMap = initialTravelItemsBySorted.map((e) => (
     <li className="travel__list--items" key={e.id}>
       <input
         className="travel__list--check"
         type="checkbox"
         value={e.isPacked}
+        checked={e.isPacked}
         onChange={() => handleCheckedTravelItem(e.id)}
       />
       <span

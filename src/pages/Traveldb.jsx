@@ -7,6 +7,7 @@ export default function Travel({ user }) {
   const [initialTravelItems, setInitialTracelItems] = useState([]);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [active, setActive] = useState(true);
   //CALCULATIONS FOR FOOTER
   const allTravelItems = initialTravelItems.length;
   const itemsPacked = initialTravelItems.filter((e) => e.isPacked).length;
@@ -42,16 +43,6 @@ export default function Travel({ user }) {
     setMoreTravelElement(defaultTravelItem);
   };
 
-  //USE EFFECT TO RETRIVE DATA FROM DATABASE SUPABASE
-  const getTravelList = async () => {
-    const res = await supabase.from("travelList").select("*");
-    setInitialTracelItems(res.data);
-  };
-
-  useEffect(() => {
-    getTravelList();
-  }, []);
-
   //DELETE HANDLE
   const handleDeleteTravelItem = async (id) => {
     //DELETE SUPABASE
@@ -65,25 +56,21 @@ export default function Travel({ user }) {
 
   //HANDLE IS PACKED OR NOT
   const handleCheckedTravelItem = async (id) => {
+    setActive((prev) => !prev);
+    //SUPABASE
+
+    await supabase
+      .from("travelList")
+      .update({ isPacked: !active })
+      .eq("id", id)
+      .select("*")
+      .single();
+
     setInitialTracelItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, isPacked: !item.isPacked } : item
       )
     );
-    //SUPABASE
-    if (data) {
-      const { data: updateTravelList, error } = await supabase
-        .from("travelList")
-        .update({ isPacked: !data.isPacked })
-        .eq("id", id)
-        .select("*")
-        .single();
-      if (error) {
-        console.error("Error updating data:", error);
-      } else {
-        setData(updateTravelList[0]); // Update the state with the new data
-      }
-    }
   };
 
   const footerStats =
@@ -110,7 +97,15 @@ export default function Travel({ user }) {
     initialTravelItemsBySorted = initialTravelItems
       .slice()
       .sort((a, b) => Number(a.isPacked) - Number(b.isPacked));
+  //USE EFFECT TO RETRIVE DATA FROM DATABASE SUPABASE
+  const getTravelList = async () => {
+    const res = await supabase.from("travelList").select("*");
+    setInitialTracelItems(res.data);
+  };
 
+  useEffect(() => {
+    getTravelList();
+  }, []);
   return (
     <div className="travel__element">
       <h1 className="heading-1">Let's Pack it up!</h1>
@@ -122,7 +117,7 @@ export default function Travel({ user }) {
       <div className="travel__list">
         <ul className="travel__item">
           <TravelItems
-            initialTravelItems={initialTravelItemsBySorted}
+            initialTravelItemsBySorted={initialTravelItemsBySorted}
             handleDeleteTravelItem={handleDeleteTravelItem}
             handleCheckedTravelItem={handleCheckedTravelItem}
           />
