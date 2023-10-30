@@ -25,6 +25,16 @@
 
 //sub -- ELEMENT
 .travel__sort {
+  display: flex;
+  justify-content: space-between;
+  &--option {
+    padding: 1rem;
+    background-color: transparent;
+    font-size: 2.2rem;
+    :hover {
+      background-color: $color-base-3;
+    }
+  }
 }
 .select__box {
 }

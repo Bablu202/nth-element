@@ -102,6 +102,12 @@ export default function Travel({ user }) {
     const res = await supabase.from("travelList").select("*");
     setInitialTracelItems(res.data);
   };
+  console.log(user.user.id);
+  //
+  const clearAllFunction = async () => {
+    await supabase.from("travelList").delete().eq("user_id", user.user.id);
+    setInitialTracelItems([]);
+  };
 
   useEffect(() => {
     getTravelList();
@@ -124,11 +130,11 @@ export default function Travel({ user }) {
         </ul>
       </div>
       <Footer
-        sortBy={sortBy}
         setSortBy={setSortBy}
-        setInitialTracelItems={setInitialTracelItems}
+        clearAllFunction={clearAllFunction}
         allTravelItems={allTravelItems}
         footerStats={footerStats}
+        user={user}
       />
     </div>
   );

@@ -1,12 +1,76 @@
 import React from "react";
 import { AiOutlineDelete } from "react-icons/ai";
+import { FcClock, FcOk, FcAlphabeticalSortingAz } from "react-icons/fc";
+import { VscAccount } from "react-icons/vsc";
+export default function Footer({
+  setSortBy,
+  clearAllFunction,
+  allTravelItems,
+  footerStats,
+  user,
+}) {
+  console.log(user);
+
+  return (
+    <footer className="footer">
+      <div className="footer__stats">
+        {!allTravelItems ? <em>Let's start adding</em> : footerStats}
+      </div>
+      <div className="travel__sort">
+        <button
+          className="travel__sort--option"
+          onClick={() => {
+            setSortBy("input");
+          }}
+        >
+          <FcClock />
+        </button>
+        <button
+          className="travel__sort--option"
+          onClick={() => {
+            setSortBy("description");
+          }}
+        >
+          <FcAlphabeticalSortingAz />
+        </button>
+        <button
+          className="travel__sort--option"
+          onClick={() => {
+            setSortBy("packed");
+          }}
+        >
+          <FcOk />
+        </button>
+        <button
+          className="travel__sort--option"
+          onClick={() => {
+            clearAllFunction();
+          }}
+        >
+          <AiOutlineDelete />
+        </button>
+        <div className="travel__sort--option">
+          <VscAccount />
+          <option value="">df</option>
+          <option value="">log out</option>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/*
+import React from "react";
+import { AiOutlineDelete } from "react-icons/ai";
 export default function Footer({
   sortBy,
   setSortBy,
-  setInitialTravelItems,
+  clearAllFunction,
   allTravelItems,
   footerStats,
+  user,
 }) {
+  console.log(user);
   return (
     <footer className="footer">
       <div className="travel__sort">
@@ -30,7 +94,7 @@ export default function Footer({
         <button
           className="btn btn--clear"
           onClick={() => {
-            setInitialTravelItems([]);
+            clearAllFunction();
           }}
         >
           <AiOutlineDelete /> Clear all
@@ -42,3 +106,4 @@ export default function Footer({
     </footer>
   );
 }
+*/
