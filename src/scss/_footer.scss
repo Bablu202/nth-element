@@ -32,20 +32,38 @@
   }
 }
 .travel__sort--option {
-  padding: 1rem 5rem;
+  padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: transparent;
+  @media only screen and (max-width: $bp-600px) {
+    padding: 0.5rem 1rem;
+  }
+  @media only screen and (max-width: $bp-400px) {
+    padding: 0rem;
+  }
 }
 .travel--icon {
   margin-bottom: 0.5rem;
   font-size: 3rem;
   cursor: pointer;
+  @media only screen and (max-width: $bp-600px) {
+    font-size: 1.6rem;
+  }
+  @media only screen and (max-width: $bp-400px) {
+    font-size: 1rem;
+  }
 }
 .travel__username {
   font-family: $font-family-fira;
   font-size: 1.6rem;
+  @media only screen and (max-width: $bp-600px) {
+    font-size: 1.6rem;
+  }
+  @media only screen and (max-width: $bp-400px) {
+    font-size: 1rem;
+  }
 }
 //DROP UP
 
