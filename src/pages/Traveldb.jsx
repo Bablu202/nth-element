@@ -111,7 +111,7 @@ export default function Travel({ user }) {
 
   useEffect(() => {
     getTravelList();
-  }, [handleCheckedTravelItem]);
+  }, [setInitialTracelItems]);
   return (
     <div className="travel__element">
       <h1 className="heading-1">Let's Pack it up!</h1>
