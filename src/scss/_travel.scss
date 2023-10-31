@@ -17,8 +17,8 @@
     grid-template-rows: repeat(2, 1fr);
     text-align: center;
     justify-content: center;
-    grid-gap: 0rem;
-    padding: 0rem;
+    grid-gap: 1rem;
+    padding: 0.8rem;
   }
   &--heading {
     grid-column: 1 / -1;
@@ -32,19 +32,19 @@
   flex-wrap: wrap;
 
   @media only screen and (max-width: $bp-600px) {
-    font-size: 1.6rem;
+    font-size: 2rem;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    padding: 0.35rem 1rem;
+    padding: 0.3rem 1rem;
     margin-right: auto;
   }
   @media only screen and (max-width: $bp-400px) {
-    font-size: 1.32rem;
-    padding: 0.2rem 0.45rem;
+    font-size: 1.5rem;
+    padding: 0.5rem 0.45rem;
   }
   @media only screen and (max-width: $bp-300px) {
-    font-size: 1rem;
+    font-size: 1.35rem;
     padding: 0.15rem 0.25rem;
   }
 }
@@ -71,6 +71,25 @@
     transform: translateY(0.15rem) translateX(-0.5rem);
   }
   &--text {
+    font-size: 2.8rem;
+    @media only screen and (max-width: $bp-1200px) {
+      font-size: 2.8rem;
+    }
+    @media only screen and (max-width: $bp-1000px) {
+      font-size: 2.5rem;
+    }
+    @media only screen and (max-width: $bp-800px) {
+      font-size: 2.5rem;
+    }
+    @media only screen and (max-width: $bp-600px) {
+      font-size: 2.2rem;
+    }
+    font-size: 1.8rem;
+    @media only screen and (max-width: $bp-400px) {
+    }
+    font-size: 1.6rem;
+    @media only screen and (max-width: $bp-300px) {
+    }
   }
 }
 
@@ -79,9 +98,9 @@ input[type="checkbox"] {
   width: 2rem;
   accent-color: $color-base-3;
   @media only screen and (max-width: $bp-600px) {
-    height: 1.6rem;
-    width: 1.6rem;
-    font-size: 1.6rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    font-size: 1.8rem;
   }
   @media only screen and (max-width: $bp-400px) {
     height: 1.32rem;
