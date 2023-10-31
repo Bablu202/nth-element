@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Traveldb from "../pages/Traveldb";
 import { supabase } from "../supabase/client";
+import Traveldb from "../pages/Traveldb";
 
 const Homepage = ({ token }) => {
   let navigate = useNavigate();
@@ -19,13 +19,9 @@ const Homepage = ({ token }) => {
   //console.log(token.user);
 
   return (
-    <div className="form">
-      <img />
-      <h3>Welcome back, {token.user.user_metadata.full_name}</h3>
-      <button onClick={handleLogout}>Logout</button>
-
+    <>
       <Traveldb user={token} />
-    </div>
+    </>
   );
 };
 

@@ -27,14 +27,66 @@
 .travel__sort {
   display: flex;
   justify-content: space-between;
-  &--option {
-    padding: 1rem;
-    background-color: transparent;
-    font-size: 2.2rem;
-    :hover {
-      background-color: $color-base-3;
-    }
+  :hover {
+    background-color: rgba($color-base-3, 0.2);
   }
 }
-.select__box {
+.travel__sort--option {
+  padding: 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
+.travel--icon {
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  cursor: pointer;
+}
+.travel__username {
+  font-family: $font-family-fira;
+  font-size: 1.6rem;
+}
+//DROP UP
+
+.dropup {
+  position: relative;
+  display: inline;
+  min-width: max-content;
+  z-index: 1;
+}
+.dropup__btn {
+  background-color: transparent;
+}
+
+.dropup__content {
+  display: none;
+  position: absolute;
+  bottom: 8rem;
+  min-width: 160px;
+  z-index: 5;
+}
+/* Links inside the dropup */
+.dropup__content button {
+  padding: 3rem;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropup links on hover */
+.dropup__content button:hover {
+  text-decoration: none;
+  display: block;
+}
+
+/* Show the dropup menu on hover */
+.dropup:hover .dropup__content {
+  display: block;
+}
+
+.dropup__content--btn {
+  background-color: transparent;
+  &:hover {
+    background-color: rgba($color-bg, 0.2);
+  }
 }

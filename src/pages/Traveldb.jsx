@@ -129,6 +129,7 @@ export default function Travel({ user }) {
           />
         </ul>
       </div>
+
       <Footer
         setSortBy={setSortBy}
         clearAllFunction={clearAllFunction}

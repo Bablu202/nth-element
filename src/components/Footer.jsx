@@ -2,6 +2,8 @@ import React from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FcClock, FcOk, FcAlphabeticalSortingAz } from "react-icons/fc";
 import { VscAccount } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabase/client";
 export default function Footer({
   setSortBy,
   clearAllFunction,
@@ -9,8 +11,21 @@ export default function Footer({
   footerStats,
   user,
 }) {
-  console.log(user);
-
+  let navigate = useNavigate();
+  const userName = user.user?.user_metadata?.full_name;
+  const handleLogout = async () => {
+    /*
+    sessionStorage.removeItem("token");
+    navigate("/");
+    */
+    await supabase.auth.signOut();
+    sessionStorage.removeItem("token");
+    navigate("/");
+  };
+  /*
+     <img />
+      <h3>Welcome back, {token.user.user_metadata.full_name}</h3>
+      <button onClick={handleLogout}>Logout</button>*/
   return (
     <footer className="footer">
       <div className="footer__stats">
@@ -23,7 +38,8 @@ export default function Footer({
             setSortBy("input");
           }}
         >
-          <FcClock />
+          <FcClock className="travel--icon" />
+          recent
         </button>
         <button
           className="travel__sort--option"
@@ -31,7 +47,8 @@ export default function Footer({
             setSortBy("description");
           }}
         >
-          <FcAlphabeticalSortingAz />
+          <FcAlphabeticalSortingAz className="travel--icon" />
+          indexed
         </button>
         <button
           className="travel__sort--option"
@@ -39,7 +56,8 @@ export default function Footer({
             setSortBy("packed");
           }}
         >
-          <FcOk />
+          <FcOk className="travel--icon" />
+          packed
         </button>
         <button
           className="travel__sort--option"
@@ -47,12 +65,22 @@ export default function Footer({
             clearAllFunction();
           }}
         >
-          <AiOutlineDelete />
+          <AiOutlineDelete className="travel--icon" />
+          Clear all
         </button>
-        <div className="travel__sort--option">
-          <VscAccount />
-          <option value="">df</option>
-          <option value="">log out</option>
+        <div className="dropup">
+          <button className="dropup__btn">
+            <div className="travel__sort--option">
+              <VscAccount className="travel--icon" />
+              <span className="travel__username">{userName}</span>
+            </div>
+          </button>
+          <div className="dropup__content">
+            <button className="dropup__content--btn" onClick={handleLogout}>
+              Log Out
+            </button>
+            <button className="dropup__content--btn">{userName}</button>
+          </div>
         </div>
       </div>
     </footer>

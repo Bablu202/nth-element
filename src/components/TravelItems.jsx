@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FcEmptyTrash } from "react-icons/fc";
 
 export default function TravelItems({
