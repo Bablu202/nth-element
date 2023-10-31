@@ -70,12 +70,10 @@ export default function Footer({
           Clear all
         </button>
         <div className="dropup">
-          <button className="dropup__btn">
-            <div className="travel__sort--option">
-              <VscAccount className="travel--icon" />
-              <span className="travel__username">{userName}</span>
-            </div>
-          </button>
+          <div className="travel__sort--option">
+            <VscAccount className="travel--icon" />
+            <span className="travel__username">{userName}</span>
+          </div>
           <div className="dropup__content">
             <button className="dropup__content--btn" onClick={handleLogout}>
               <AiOutlineLogout /> Log Out
