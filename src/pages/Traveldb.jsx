@@ -7,7 +7,7 @@ export default function Travel({ user }) {
   const [initialTravelItems, setInitialTracelItems] = useState([]);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState();
   //CALCULATIONS FOR FOOTER
   const allTravelItems = initialTravelItems.length;
   const itemsPacked = initialTravelItems.filter((e) => e.isPacked).length;
@@ -58,8 +58,7 @@ export default function Travel({ user }) {
   const handleCheckedTravelItem = async (id) => {
     setActive((prev) => !prev);
     //SUPABASE
-
-    await supabase
+    const { data: a } = await supabase
       .from("travelList")
       .update({ isPacked: !active })
       .eq("id", id)
@@ -111,7 +110,7 @@ export default function Travel({ user }) {
 
   useEffect(() => {
     getTravelList();
-  }, [setInitialTracelItems]);
+  }, []);
   return (
     <div className="travel__element">
       <h1 className="heading-1">Let's Pack it up!</h1>
