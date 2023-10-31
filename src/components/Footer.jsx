@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FcClock, FcOk, FcAlphabeticalSortingAz } from "react-icons/fc";
 import { VscAccount } from "react-icons/vsc";
+import { AiOutlineLogout } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabase/client";
 export default function Footer({
@@ -77,9 +78,11 @@ export default function Footer({
           </button>
           <div className="dropup__content">
             <button className="dropup__content--btn" onClick={handleLogout}>
-              Log Out
+              <AiOutlineLogout /> Log Out
             </button>
-            <button className="dropup__content--btn">{userName}</button>
+            <button className="dropup__content--btn">
+              Welcome back {userName}
+            </button>
           </div>
         </div>
       </div>
