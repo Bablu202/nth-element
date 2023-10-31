@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-bottom: 5rem;
 
   &__stats {
     font-size: 1.6rem;
@@ -38,10 +39,10 @@
   align-items: center;
   background-color: transparent;
   @media only screen and (max-width: $bp-600px) {
-    padding: 0.5rem 1rem;
+    padding: 1rem 1.5rem;
   }
   @media only screen and (max-width: $bp-400px) {
-    padding: 0rem;
+    padding: 0.8rem;
   }
 }
 .travel--icon {
@@ -49,19 +50,22 @@
   font-size: 3rem;
   cursor: pointer;
   @media only screen and (max-width: $bp-600px) {
-    font-size: 1.6rem;
+    font-size: 2.8rem;
   }
   @media only screen and (max-width: $bp-400px) {
-    font-size: 1rem;
+    font-size: 2.5rem;
   }
 }
 .travel__username {
   font-family: $font-family-fira;
   font-size: 1.6rem;
   @media only screen and (max-width: $bp-600px) {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
   @media only screen and (max-width: $bp-400px) {
+    font-size: 1rem;
+  }
+  @media only screen and (max-width: $bp-300px) {
     font-size: 1rem;
   }
 }
