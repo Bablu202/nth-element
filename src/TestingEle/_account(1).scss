@@ -1,5 +1,4 @@
 .account {
-  display: inline;
   &__checkbox {
     display: none;
   }
@@ -21,24 +20,9 @@
     cursor: pointer;
 
     z-index: 10;
-    @media only screen and (max-width: $bp-600px) {
-      font-size: 1.2rem;
-    }
-    @media only screen and (max-width: $bp-400px) {
-      font-size: 1rem;
-    }
-    @media only screen and (max-width: $bp-300px) {
-      font-size: 1rem;
-    }
   }
   &__user {
     font-size: 3rem;
-    @media only screen and (max-width: $bp-600px) {
-      font-size: 2.8rem;
-    }
-    @media only screen and (max-width: $bp-400px) {
-      font-size: 2.5rem;
-    }
   }
   //account check-box show up layout styling  in nav
   &__nav {

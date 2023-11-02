@@ -70,7 +70,7 @@ export default function Footer({
           <AiOutlineDelete className="travel--icon" />
           Clear all
         </button>
-        <div className="travel__user">
+        <div className="travel__sort--option">
           <Account token={user} />
         </div>
       </div>
