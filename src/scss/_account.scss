@@ -42,7 +42,7 @@
   }
   //account check-box show up layout styling  in nav
   &__nav {
-    background-color: $color-prime-2;
+    background-color: $color-prime-3;
     height: 100vh;
     width: 75vw;
     position: fixed;
@@ -71,7 +71,8 @@
   &__link {
     display: inline-block;
     text-decoration: none;
-    color: $color-bg;
+    color: white;
+    font-weight: 400;
     font-size: 2rem;
     padding: 1rem 2rem;
     transition: all 0.4s;
