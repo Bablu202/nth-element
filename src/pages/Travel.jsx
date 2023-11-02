@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TravelForm from "../components/TravelForm";
 import TravelItems from "../components/TravelItems";
-import { FcCheckmark } from "react-icons/fc";
 import Footer from "../components/Footer";
 export default function Travel() {
   //LOCAL STORAGE
@@ -87,7 +86,10 @@ export default function Travel() {
 
   return (
     <div className="travel__element">
-      <h1 className="heading-1">Let's Pack it up!</h1>
+      <div>
+        <h1 className="heading-1">Let's Pack it up!</h1>
+      </div>
+
       <TravelForm
         handleAddTravelItems={handleAddTravelItems}
         moreTravelElement={moreTravelElement}

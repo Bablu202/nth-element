@@ -11,9 +11,9 @@ const Homepage = ({ token }) => {
     sessionStorage.removeItem("token");
     navigate("/");
     */
-    await supabase.auth.signOut();
-    sessionStorage.removeItem("token");
     navigate("/");
+    sessionStorage.removeItem("token");
+    await supabase.auth.signOut();
   };
   //console.log(token.user.email);
   //console.log(token.user);

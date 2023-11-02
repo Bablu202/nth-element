@@ -5,6 +5,7 @@ import { VscAccount } from "react-icons/vsc";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabase/client";
+import Account from "./Account";
 export default function Footer({
   setSortBy,
   clearAllFunction,
@@ -69,19 +70,8 @@ export default function Footer({
           <AiOutlineDelete className="travel--icon" />
           Clear all
         </button>
-        <div className="dropup">
-          <div className="travel__sort--option">
-            <VscAccount className="travel--icon" />
-            <span className="travel__username">{userName}</span>
-          </div>
-          <div className="dropup__content">
-            <button className="dropup__content--btn" onClick={handleLogout}>
-              <AiOutlineLogout /> Log Out
-            </button>
-            <button className="dropup__content--btn">
-              Welcome back {userName}
-            </button>
-          </div>
+        <div className="travel__user">
+          <Account token={user} />
         </div>
       </div>
     </footer>

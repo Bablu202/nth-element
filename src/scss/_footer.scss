@@ -28,12 +28,10 @@
 .travel__sort {
   display: flex;
   justify-content: space-between;
-  :hover {
-    background-color: rgba($color-base-3, 0.2);
-  }
 }
 .travel__sort--option {
   padding: 1rem 3rem;
+  flex: 6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +44,7 @@
     padding: 0.8rem;
   }
 }
+
 .travel--icon {
   margin-bottom: 0.5rem;
   font-size: 3rem;
@@ -57,6 +56,10 @@
   @media only screen and (max-width: $bp-400px) {
     font-size: 2.5rem;
   }
+}
+.travel__user {
+  padding: 1rem;
+  flex: 5;
 }
 .travel__username {
   font-family: $font-family-fira;
@@ -109,4 +112,8 @@
 .dropup:hover .dropup__content {
   display: inline-block;
   width: 60vw;
+}
+
+.select__option {
+  overflow: scroll;
 }
